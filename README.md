@@ -1,7 +1,7 @@
 # zjsn_viewer_service
 by Traburiss
 
-为ZjsnViewer提供后台服务，
+为ZjsnViewer提供后台服务
 
 目前进度：
 
