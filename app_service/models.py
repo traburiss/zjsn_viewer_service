@@ -3,6 +3,9 @@ from django.db import models
 # Create your models here.
 
 
+BEFORE_STATIC_URL = "http://172.26.131.148:8000/"
+
+
 class KanmusuEquipment(models.Model):
     # 图鉴编号
     equipment_id = models.CharField(max_length=12)
@@ -50,6 +53,8 @@ class KanmusuEquipment(models.Model):
     equipment_special_effect = models.TextField()
     # 说明
     equipment_info = models.TextField()
+    # 图片地址
+    equipment_pic = models.TextField()
 
     def to_dict(self):
         return {
@@ -76,6 +81,7 @@ class KanmusuEquipment(models.Model):
             'equipment_antiair_correct': self.equipment_antiair_correct,
             'equipment_special_effect': self.equipment_special_effect,
             'equipment_info': self.equipment_info,
+            'equipment_pic': BEFORE_STATIC_URL + self.equipment_pic,
         }
 
 

@@ -3,135 +3,493 @@
   <data-source name="Sqlite (Xerial) - app_service.sqlite3" uuid="f79a9e03-0c92-4870-bc2f-4438ebb2f9fa">
     <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
-    <schema name="" catalog=""/>
-    <table name="app_service_kanmusuequipment" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_id" sqlType="VARCHAR(12)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_name" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_level" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_type" sqlType="VARCHAR(24)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_suit_type" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_from" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_make_time" sqlType="VARCHAR(24)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_make_threshold" sqlType="VARCHAR(24)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_discard" sqlType="VARCHAR(24)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_range" sqlType="VARCHAR(4)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_fire" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_torpedo" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_antisubmarine" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_boom" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_antiair" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_armor" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_hit" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_flee" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_tracking" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_lucky" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="equipment_antiair_correct" sqlType="REAL" precision="0" scale="-1" nullable="false" jdbcType="6"/>
-      <column name="equipment_special_effect" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="equipment_info" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-    </table>
-    <table name="auth_group" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR(80)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-    </table>
-    <table name="auth_group_permissions" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="group_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="permission_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <primary-key columns="id"/>
-      <foreign-key name="#FAKE_auth_group_permissions_1" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <foreign-key name="#FAKE_auth_group_permissions_2" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <index name="auth_group_permissions_8373b171" unique="true" columns="permission_id"/>
-      <index name="auth_group_permissions_0e939a4f" unique="true" columns="group_id"/>
-      <index name="auth_group_permissions_group_id_0cd325b0_uniq" unique="true" columns="group_id,permission_id"/>
-    </table>
-    <table name="auth_permission" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="content_type_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="codename" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-      <foreign-key name="#FAKE_auth_permission_1" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <index name="auth_permission_417f1b1c" unique="true" columns="content_type_id"/>
-      <index name="auth_permission_content_type_id_01ab375a_uniq" unique="true" columns="content_type_id,codename"/>
-    </table>
-    <table name="auth_user" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="password" sqlType="VARCHAR(128)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="last_login" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="is_superuser" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="first_name" sqlType="VARCHAR(30)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="last_name" sqlType="VARCHAR(30)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="email" sqlType="VARCHAR(254)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="is_staff" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="is_active" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="date_joined" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="username" sqlType="VARCHAR(30)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-    </table>
-    <table name="auth_user_groups" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="group_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <primary-key columns="id"/>
-      <foreign-key name="#FAKE_auth_user_groups_1" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <foreign-key name="#FAKE_auth_user_groups_2" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <index name="auth_user_groups_0e939a4f" unique="true" columns="group_id"/>
-      <index name="auth_user_groups_e8701ad4" unique="true" columns="user_id"/>
-      <index name="auth_user_groups_user_id_94350c0c_uniq" unique="true" columns="user_id,group_id"/>
-    </table>
-    <table name="auth_user_user_permissions" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="permission_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <primary-key columns="id"/>
-      <foreign-key name="#FAKE_auth_user_user_permissions_1" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <foreign-key name="#FAKE_auth_user_user_permissions_2" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <index name="auth_user_user_permissions_8373b171" unique="true" columns="permission_id"/>
-      <index name="auth_user_user_permissions_e8701ad4" unique="true" columns="user_id"/>
-      <index name="auth_user_user_permissions_user_id_14a6b632_uniq" unique="true" columns="user_id,permission_id"/>
-    </table>
-    <table name="django_admin_log" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="object_id" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="object_repr" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="change_message" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="content_type_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="action_time" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-      <foreign-key name="#FAKE_django_admin_log_1" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <foreign-key name="#FAKE_django_admin_log_2" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
-      <index name="django_admin_log_e8701ad4" unique="true" columns="user_id"/>
-      <index name="django_admin_log_417f1b1c" unique="true" columns="content_type_id"/>
-    </table>
-    <table name="django_content_type" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="app_label" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="model" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-      <index name="django_content_type_app_label_76bd3d3b_uniq" unique="true" columns="app_label,model"/>
-    </table>
-    <table name="django_migrations" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="app" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="applied" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-    </table>
-    <table name="django_session" schema="" catalog="" type="TABLE">
-      <column name="session_key" sqlType="VARCHAR(40)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="session_data" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="expire_date" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="session_key"/>
-      <index name="django_session_de54fa62" unique="true" columns="expire_date"/>
-    </table>
-    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
-      <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-    </table>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+      <table id="2" parent="1" name="app_service_kanmusuequipment"/>
+      <table id="3" parent="1" name="auth_group"/>
+      <table id="4" parent="1" name="auth_group_permissions"/>
+      <table id="5" parent="1" name="auth_permission"/>
+      <table id="6" parent="1" name="auth_user"/>
+      <table id="7" parent="1" name="auth_user_groups"/>
+      <table id="8" parent="1" name="auth_user_user_permissions"/>
+      <table id="9" parent="1" name="django_admin_log"/>
+      <table id="10" parent="1" name="django_content_type"/>
+      <table id="11" parent="1" name="django_migrations"/>
+      <table id="12" parent="1" name="django_session"/>
+      <table id="13" parent="1" name="sqlite_sequence"/>
+      <column id="14" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="15" parent="2" name="equipment_id">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(12) (0,-1)|12</data-type>
+      </column>
+      <column id="16" parent="2" name="equipment_name">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="17" parent="2" name="equipment_level">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="18" parent="2" name="equipment_type">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(24) (0,-1)|12</data-type>
+      </column>
+      <column id="19" parent="2" name="equipment_suit_type">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="20" parent="2" name="equipment_from">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="21" parent="2" name="equipment_make_time">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(24) (0,-1)|12</data-type>
+      </column>
+      <column id="22" parent="2" name="equipment_make_threshold">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(24) (0,-1)|12</data-type>
+      </column>
+      <column id="23" parent="2" name="equipment_discard">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(24) (0,-1)|12</data-type>
+      </column>
+      <column id="24" parent="2" name="equipment_range">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(4) (0,-1)|12</data-type>
+      </column>
+      <column id="25" parent="2" name="equipment_fire">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="26" parent="2" name="equipment_torpedo">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="27" parent="2" name="equipment_antisubmarine">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="28" parent="2" name="equipment_boom">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="29" parent="2" name="equipment_antiair">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="30" parent="2" name="equipment_armor">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="31" parent="2" name="equipment_hit">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="32" parent="2" name="equipment_flee">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="33" parent="2" name="equipment_tracking">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="34" parent="2" name="equipment_lucky">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="35" parent="2" name="equipment_antiair_correct">
+        <mandatory>1</mandatory>
+        <data-type>REAL(0,-1)|6</data-type>
+      </column>
+      <column id="36" parent="2" name="equipment_special_effect">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="37" parent="2" name="equipment_info">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <key id="38" parent="2">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="39" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="40" parent="3" name="name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(80) (0,-1)|12</data-type>
+      </column>
+      <key id="41" parent="3">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="42" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="43" parent="4" name="group_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="44" parent="4" name="permission_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <index id="45" parent="4" name="auth_group_permissions_8373b171">
+        <columns>permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="46" parent="4" name="auth_group_permissions_0e939a4f">
+        <columns>group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="47" parent="4" name="auth_group_permissions_group_id_0cd325b0_uniq">
+        <columns>group_id
+permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="48" parent="4">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="49" parent="4" name="#FAKE_auth_group_permissions_1">
+        <columns>permission_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_permission.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="50" parent="4" name="#FAKE_auth_group_permissions_2">
+        <columns>group_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_group.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="51" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="52" parent="5" name="content_type_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="53" parent="5" name="codename">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (0,-1)|12</data-type>
+      </column>
+      <column id="54" parent="5" name="name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (0,-1)|12</data-type>
+      </column>
+      <index id="55" parent="5" name="auth_permission_417f1b1c">
+        <columns>content_type_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="56" parent="5" name="auth_permission_content_type_id_01ab375a_uniq">
+        <columns>content_type_id
+codename</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="57" parent="5">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="58" parent="5" name="#FAKE_auth_permission_1">
+        <columns>content_type_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.django_content_type.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="59" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="60" parent="6" name="password">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
+      </column>
+      <column id="61" parent="6" name="last_login">
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="62" parent="6" name="is_superuser">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(0,-1)|4</data-type>
+      </column>
+      <column id="63" parent="6" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
+      </column>
+      <column id="64" parent="6" name="last_name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
+      </column>
+      <column id="65" parent="6" name="email">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(254) (0,-1)|12</data-type>
+      </column>
+      <column id="66" parent="6" name="is_staff">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(0,-1)|4</data-type>
+      </column>
+      <column id="67" parent="6" name="is_active">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(0,-1)|4</data-type>
+      </column>
+      <column id="68" parent="6" name="date_joined">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="69" parent="6" name="username">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
+      </column>
+      <key id="70" parent="6">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="71" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="72" parent="7" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="73" parent="7" name="group_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <index id="74" parent="7" name="auth_user_groups_0e939a4f">
+        <columns>group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="75" parent="7" name="auth_user_groups_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="76" parent="7" name="auth_user_groups_user_id_94350c0c_uniq">
+        <columns>user_id
+group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="77" parent="7">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="78" parent="7" name="#FAKE_auth_user_groups_1">
+        <columns>group_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_group.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="79" parent="7" name="#FAKE_auth_user_groups_2">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_user.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="80" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="81" parent="8" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="82" parent="8" name="permission_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <index id="83" parent="8" name="auth_user_user_permissions_8373b171">
+        <columns>permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="84" parent="8" name="auth_user_user_permissions_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="85" parent="8" name="auth_user_user_permissions_user_id_14a6b632_uniq">
+        <columns>user_id
+permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="86" parent="8">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="87" parent="8" name="#FAKE_auth_user_user_permissions_1">
+        <columns>permission_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_permission.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="88" parent="8" name="#FAKE_auth_user_user_permissions_2">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_user.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="89" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="90" parent="9" name="object_id">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="91" parent="9" name="object_repr">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(200) (0,-1)|12</data-type>
+      </column>
+      <column id="92" parent="9" name="action_flag">
+        <mandatory>1</mandatory>
+        <data-type>SMALLINT UNSIGNED(0,-1)|4</data-type>
+      </column>
+      <column id="93" parent="9" name="change_message">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="94" parent="9" name="content_type_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="95" parent="9" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="96" parent="9" name="action_time">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <index id="97" parent="9" name="django_admin_log_e8701ad4">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="98" parent="9" name="django_admin_log_417f1b1c">
+        <columns>content_type_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="99" parent="9">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="100" parent="9" name="#FAKE_django_admin_log_1">
+        <columns>user_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.auth_user.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="101" parent="9" name="#FAKE_django_admin_log_2">
+        <columns>content_type_id</columns>
+        <deferrable>1</deferrable>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.django_content_type.#1</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="102" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="103" parent="10" name="app_label">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (0,-1)|12</data-type>
+      </column>
+      <column id="104" parent="10" name="model">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(100) (0,-1)|12</data-type>
+      </column>
+      <index id="105" parent="10" name="django_content_type_app_label_76bd3d3b_uniq">
+        <columns>app_label
+model</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="106" parent="10">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="107" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="108" parent="11" name="app">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (0,-1)|12</data-type>
+      </column>
+      <column id="109" parent="11" name="name">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(255) (0,-1)|12</data-type>
+      </column>
+      <column id="110" parent="11" name="applied">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="111" parent="11">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="112" parent="12" name="session_key">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(40) (0,-1)|12</data-type>
+      </column>
+      <column id="113" parent="12" name="session_data">
+        <mandatory>1</mandatory>
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="114" parent="12" name="expire_date">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <index id="115" parent="12" name="django_session_de54fa62">
+        <columns>expire_date</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="116" parent="12">
+        <columns>session_key</columns>
+        <primary>1</primary>
+      </key>
+      <column id="117" parent="13" name="name">
+        <data-type>(0,-1)|12</data-type>
+      </column>
+      <column id="118" parent="13" name="seq">
+        <data-type>(0,-1)|12</data-type>
+      </column>
+    </database-model>
   </data-source>
 </component>
