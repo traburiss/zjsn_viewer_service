@@ -6,5 +6,5 @@ class ErrorDeal(BaseDealWith):
     @staticmethod
     def deal_with(params):
         # get_params = json.loads(params)
-        result = {'result': 'no such function', 'send_params': params}
+        result = {'error_info': 'no such function', 'result': params}
         return json.dumps(result)

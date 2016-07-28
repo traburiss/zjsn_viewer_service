@@ -3,52 +3,52 @@ from django.db import models
 # Create your models here.
 
 
-BEFORE_STATIC_URL = "http://172.26.131.148:8000/"
+BEFORE_STATIC_URL = "http://172.26.131.200:8000/"
 
 
 class KanmusuEquipment(models.Model):
     # 图鉴编号
-    equipment_id = models.CharField(max_length=12)
+    equipment_id = models.TextField()
     # 装备名
     equipment_name = models.TextField()
     # 稀有度
-    equipment_level = models.IntegerField()
+    equipment_level = models.TextField()
     # 装备类型
-    equipment_type = models.CharField(max_length=24)
+    equipment_type = models.TextField()
     # 适用船类型
     equipment_suit_type = models.TextField()
     # 来源
     equipment_from = models.TextField()
     # 开发时间
-    equipment_make_time = models.CharField(max_length=24)
+    equipment_make_time = models.TextField()
     # 开发阈值
-    equipment_make_threshold = models.CharField(max_length=24)
+    equipment_make_threshold = models.TextField()
     # 废弃
-    equipment_discard = models.CharField(max_length=24)
+    equipment_discard = models.TextField()
     # 射程
-    equipment_range = models.CharField(max_length=4)
+    equipment_range = models.TextField()
     # 火力
-    equipment_fire = models.IntegerField(default=0)
+    equipment_fire = models.TextField(default='0')
     # 鱼雷
-    equipment_torpedo = models.IntegerField(default=0)
+    equipment_torpedo = models.TextField(default='0')
     # 对潜
-    equipment_antisubmarine = models.IntegerField(default=0)
+    equipment_antisubmarine = models.TextField(default='0')
     # 轰炸
-    equipment_boom = models.IntegerField(default=0)
+    equipment_boom = models.TextField(default='0')
     # 对空
-    equipment_antiair = models.IntegerField(default=0)
+    equipment_antiair = models.TextField(default='0')
     # 装甲
-    equipment_armor = models.IntegerField(default=0)
+    equipment_armor = models.TextField(default='0')
     # 命中
-    equipment_hit = models.IntegerField(default=0)
+    equipment_hit = models.TextField(default='0')
     # 回避
-    equipment_flee = models.IntegerField(default=0)
+    equipment_flee = models.TextField(default='0')
     # 索敌
-    equipment_tracking = models.IntegerField(default=0)
+    equipment_tracking = models.TextField(default='0')
     # 幸运
-    equipment_lucky = models.IntegerField(default=0)
+    equipment_lucky = models.TextField(default='0')
     # 对空补正
-    equipment_antiair_correct = models.FloatField(default=0)
+    equipment_antiair_correct = models.TextField(default='0')
     # 特殊效果
     equipment_special_effect = models.TextField()
     # 说明
