@@ -14,9 +14,9 @@ class EquipmentList(BaseDealWith):
             return json.dumps({"error_code": "1", "error_type": "params error"})
         return_list = []
         db_list = KanmusuEquipment.objects.order_by('equipment_id')
-        if receive_params is dict and 'PAGE_SIZE' in receive_params.keys() and 'PAGE_NUM' in receive_params.keys():
-            page_size = receive_params['PAGE_SIZE']
-            page_num = receive_params['PAGE_NUM']
+        if isinstance(receive_params, dict) and 'PAGE_SIZE' in receive_params.keys() and 'PAGE_NUM' in receive_params.keys():
+            page_size = int(receive_params['PAGE_SIZE'])
+            page_num = int(receive_params['PAGE_NUM'])
             start_count = page_size * (page_num - 1)
             end_count = page_size * page_num
             db_list_len = len(db_list)
@@ -29,4 +29,6 @@ class EquipmentList(BaseDealWith):
         for row in db_list:
             if row is not None:
                 return_list.append(row.to_dict())
-        return json.dumps(return_list)
+
+        result = {'error_info': 'success', 'result': return_list}
+        return json.dumps(result)
