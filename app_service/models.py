@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-BEFORE_STATIC_URL = "http://172.26.131.200:8000/"
+BEFORE_STATIC_URL = "http://192.168.31.207:8000/"
 
 
 class KanmusuEquipment(models.Model):
